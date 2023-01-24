@@ -1,14 +1,14 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "0b807744-ace3-4ebb-98ba-b6519899b8f4"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "UMS-Frontend-v2": {
+    "UMS-Frontend": {
       "projectType": "application",
       "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        },
         "@schematics/angular:application": {
           "strict": true
         }
@@ -20,18 +20,17 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/UMS-Frontend-v2",
+            "outputPath": "dist/UMS-Frontend",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.css"
             ],
             "scripts": []
           },
@@ -72,10 +71,13 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "UMS-Frontend-v2:build:production"
+              "browserTarget": "UMS-Frontend:build:production"
             },
             "development": {
-              "browserTarget": "UMS-Frontend-v2:build:development"
+              "browserTarget": "UMS-Frontend:build:development"
+            },
+            "options": {
+              "optimization": true
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +85,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "UMS-Frontend-v2:build"
+            "browserTarget": "UMS-Frontend:build"
           }
         },
         "test": {
@@ -93,13 +95,12 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.css"
             ],
             "scripts": []
           }
@@ -107,5 +108,5 @@
       }
     }
   },
-  "defaultProject": "UMS-Frontend-v2"
+  "defaultProject": "UMS-Frontend"
 }
